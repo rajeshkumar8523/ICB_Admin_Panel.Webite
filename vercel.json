@@ -1,15 +1,21 @@
 {
   "version": 2,
   "builds": [
-    { "src": "backend/app.js", "use": "@vercel/node" },
-    { "src": "ICB-Admin-Panel/*", "use": "@vercel/static" }
+    {
+      "src": "backend/app.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "ICB-Admin-Panel/*",
+      "use": "@vercel/static"
+    }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "backend/app.js",
       "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-      "headers": { 
+      "headers": {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
@@ -18,7 +24,9 @@
     {
       "src": "/favicon.ico",
       "dest": "ICB-Admin-Panel/favicon.ico",
-      "headers": { "Cache-Control": "public, max-age=86400" }
+      "headers": {
+        "Cache-Control": "public, max-age=86400"
+      }
     },
     {
       "src": "/(.*)",
@@ -26,7 +34,8 @@
       "headers": {
         "Cache-Control": "public, max-age=3600",
         "X-Frame-Options": "DENY",
-        "X-Content-Type-Options": "nosniff"
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin"
       }
     }
   ]
