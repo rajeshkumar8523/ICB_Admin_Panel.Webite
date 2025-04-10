@@ -2,20 +2,11 @@
     "version": 2,
     "builds": [
       {
-        "src": "*.html",
-        "use": "@vercel/static"
-      },
-      {
-        "src": "*.css",
-        "use": "@vercel/static"
-      },
-      {
-        "src": "*.js",
-        "use": "@vercel/static"
-      },
-      {
-        "src": "assets/**/*",
-        "use": "@vercel/static"
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "build"
+        }
       }
     ],
     "routes": [
@@ -30,43 +21,8 @@
         }
       },
       {
-        "src": "/LOGIN/(.*)",
-        "dest": "/LOGIN/$1"
-      },
-      {
-        "src": "/BUSSES/(.*)",
-        "dest": "/BUSSES/$1"
-      },
-      {
-        "src": "/DRIVERSLIST/(.*)",
-        "dest": "/DRIVERSLIST/$1"
-      },
-      {
-        "src": "/TRACKING/(.*)",
-        "dest": "/TRACKING/$1"
-      },
-      {
-        "src": "/PROFILE/(.*)",
-        "dest": "/PROFILE/$1"
-      },
-      {
-        "src": "/STUDENTLOGIN/(.*)",
-        "dest": "/STUDENTLOGIN/$1"
-      },
-      {
-        "src": "/",
-        "dest": "/index.html"
-      },
-      {
         "src": "/(.*)",
-        "dest": "/$1",
-        "status": 200
-      }
-    ],
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
+        "dest": "/index.html"
       }
     ],
     "headers": [
