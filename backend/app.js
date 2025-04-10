@@ -10,7 +10,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:5500', 'https://icb-admin-panel-website-projectsvercel-lb0t7hchw.vercel.app'],
+        origin: ['http://localhost:5500', 'https://icb-admin-panel-website-8tjak5gmq-rajeshkumar8523s-projects.vercel.app'],
         methods: ['GET', 'POST'],
         credentials: true
     }
@@ -19,7 +19,7 @@ const io = new Server(server, {
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:5500', 'https://icb-admin-panel-website-projectsvercel-lb0t7hchw.vercel.app'],
+    origin: ['http://localhost:5500', 'https://icb-admin-panel-website-8tjak5gmq-rajeshkumar8523s-projects.vercel.app'],
     methods: ['GET', 'POST'],
     credentials: true
 }));
