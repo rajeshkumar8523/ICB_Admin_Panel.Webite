@@ -3,12 +3,13 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-      "start": "serve ./ -p 3000",
-      "dev": "serve ./ -p 3000",
-      "build": "echo 'Frontend build complete'"
+      "start": "serve -s build -p 3000",
+      "dev": "serve -s build -p 3000",
+      "build": "react-scripts build"
     },
     "dependencies": {
-      "serve": "^14.2.1"
+      "serve": "^14.2.1",
+      "react-scripts": "^5.0.1"
     },
     "devDependencies": {
       "vercel": "^34.0.0"
