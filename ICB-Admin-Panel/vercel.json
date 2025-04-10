@@ -1,0 +1,95 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "*.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "*.css",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "*.js",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "assets/**/*",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "https://icb-admin-panel-website-backend.vercel.app/api/$1",
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+        }
+      },
+      {
+        "src": "/LOGIN/(.*)",
+        "dest": "/LOGIN/$1"
+      },
+      {
+        "src": "/BUSSES/(.*)",
+        "dest": "/BUSSES/$1"
+      },
+      {
+        "src": "/DRIVERSLIST/(.*)",
+        "dest": "/DRIVERSLIST/$1"
+      },
+      {
+        "src": "/TRACKING/(.*)",
+        "dest": "/TRACKING/$1"
+      },
+      {
+        "src": "/PROFILE/(.*)",
+        "dest": "/PROFILE/$1"
+      },
+      {
+        "src": "/STUDENTLOGIN/(.*)",
+        "dest": "/STUDENTLOGIN/$1"
+      },
+      {
+        "src": "/",
+        "dest": "/index.html"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/$1",
+        "status": 200
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,16 @@
+{
+    "name": "icb-tracking-system-frontend",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "start": "serve ./ -p 3000",
+      "dev": "serve ./ -p 3000",
+      "build": "echo 'Frontend build complete'"
+    },
+    "dependencies": {
+      "serve": "^14.2.1"
+    },
+    "devDependencies": {
+      "vercel": "^34.0.0"
+    }
+  }

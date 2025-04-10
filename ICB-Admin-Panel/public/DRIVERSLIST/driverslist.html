@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar with Icons & Submenus</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="driverslist.css">
+</head>
+
+<body class="dark-mode">
+    <div>
+        <div class="container">
+            <!-- Sidebar -->
+            <div id="sidebar" class="sidebar">
+                <div class="sidebar-header">
+                    <img src="https://assets.onecompiler.app/42y68y97m/433wsrkx3/DALL%C2%B7E%202024-12-16%2019.45.45%20-%20A%20futuristic%20and%20sleek%20logo%20design%20for%20a%20company%20named%20'ICB'%20with%20the%20subtitle%20'TRACKING%20SYSTEM'.%20The%20logo%20should%20include%20abstract%20GPS-inspired%20elemen.webp"
+                        alt="ICB Logo">
+                    <h1>ICB Tracking System</h1>
+                    <button class="toggle-sidebar-btn" id="toggleSidebarBtn">→</button>
+                </div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="../index.html"><i class="fas fa-home icon"></i> <span
+                                class="label">Dashboard</span></a></li>
+
+                    <li class="menu-item" onclick="toggleDropdown('submenu-busses', 'icon-busses')">
+                        <i class="fas fa-bus icon"></i> <span class="label">All Buses</span>
+                        <i class="fas fa-chevron-down submenu-toggle-icon" id="icon-busses"></i>
+                    </li>
+                    <ul class="submenu" id="submenu-busses">
+                        <li class="menu-item"><a href="../BUSSES/buslist.html"><i class="fas fa-bus-alt icon"></i> <span class="label">Buses
+                                    List</span></a></li>
+                       
+                    </ul>
+
+                    <li class="menu-item" onclick="toggleDropdown('submenu-drivers', 'icon-drivers')">
+                        <i class="fas fa-users icon"></i> <span class="label">Drivers</span>
+                        <i class="fas fa-chevron-down submenu-toggle-icon" id="icon-drivers"></i>
+                    </li>
+                    <ul class="submenu" id="submenu-drivers">
+                        <li class="menu-item active"><a href="#"><i class="fas fa-id-card"></i> <span class="label">Drivers
+                                    List</span></a></li>
+                    </ul>
+
+                    <li class="menu-item" onclick="toggleDropdown('submenu-students', 'icon-students')">
+                        <i class="fas fa-user-graduate icon"></i> <span class="label">Bus Wise Students</span>
+                        <i class="fas fa-chevron-down submenu-toggle-icon" id="icon-students"></i>
+                    </li>
+                    <ul class="submenu" id="submenu-students">
+                        <li class="menu-item"><a href="../STUDENTS/student.html"><i class="fas fa-user"></i> <span class="label">Bus No
+                                    1</span></a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                                    2</span></a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                                    3</span></a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                                    4</span></a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                                    5</span></a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                                    6</span></a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                                    7</span></a></li>
+                    </ul>
+
+                    <li class="menu-item"><a href="../BUSSES/buslist.html"><i class="fas fa-map-marker-alt icon"></i> <span
+                                class="label">Tracking</span></a></li>
+                  
+                    <li class="menu-item"><a href="../PROFILE/profile.html"><i class="fas fa-user icon"></i> <span
+                                class="label">Profile</span></a></li>
+                    
+                    <li class="menu-item"><a href="#"><i class="fas fa-sign-out-alt icon"></i> <span class="label">Log
+                                Out</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="content">
+                <h2 class="heading">Driver's Employee List</h2>
+                <div style="width: 100%; display: flex; justify-content: flex-end; margin-right: 50px; margin-bottom: 30px;">
+                  <div class="downloadBox">
+                    <button class="downloadButton" onclick="openDownloadModal()">
+                      <i class="fas fa-download"></i>
+                    </button>
+                  </div>
+          
+                  <!-- Download Modal -->
+                  <div class="downloadModal" id="downloadModal">
+                    <div class="modalContent">
+                      <p>Choose a format to download:</p>
+                      <button class="modalButton" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Download PDF
+                      </button>
+                      <button class="modalButton" onclick="downloadExcel()">
+                        <i class="fas fa-file-excel"></i> Download Excel
+                      </button>
+                      <button class="modalButton" onclick="closeDownloadModal()">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Employee List -->
+                <div class="employeeListContainer" id="employeeListContainer">
+                  <!-- Employee cards will be dynamically added here -->
+                </div>
+              </div>
+            </div>
+          
+            <!-- Suspension Popup -->
+            <div class="popup" id="suspensionPopup">
+              <div class="popupContent">
+                <h3>Enter your password to confirm suspension</h3>
+                <input type="password" id="passwordInput" class="popupInput" placeholder="Password">
+                <p class="errorMessage" id="errorMessage"></p>
+                <div class="popupActions">
+                  <button class="noBtn" onclick="handleCancel()">No</button>
+                  <button class="yesBtn" onclick="handleConfirmSuspend()">Yes</button>
+                </div>
+              </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <script src="driverslist.js"></script>
+</body>
+
+</html>

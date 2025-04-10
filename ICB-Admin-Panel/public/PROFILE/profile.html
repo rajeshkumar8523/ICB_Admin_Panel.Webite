@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar with Icons & Submenus</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="profile.css">
+</head>
+
+<body class="dark-mode">
+  <div class="container">
+    <div id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <img
+          src="https://assets.onecompiler.app/42y68y97m/433wsrkx3/DALL%C2%B7E%202024-12-16%2019.45.45%20-%20A%20futuristic%20and%20sleek%20logo%20design%20for%20a%20company%20named%20'ICB'%20with%20the%20subtitle%20'TRACKING%20SYSTEM'.%20The%20logo%20should%20include%20abstract%20GPS-inspired%20elemen.webp"
+          alt="Akshara Logo">
+        <h1>ICB Tracking System</h1>
+        <button class="toggle-sidebar-btn" id="toggleSidebarBtn">→</button>
+      </div>
+      <ul class="menu">
+        <li class="menu-item"><a href="../index.html"><i class="fas fa-home icon"></i> <span class="label">Dashboard</span></a></li>
+
+        <li class="menu-item" onclick="toggleDropdown('submenu-busses', 'icon-busses')">
+          <i class="fas fa-bus icon"></i> <span class="label">All Buses</span>
+          <i class="fas fa-chevron-down submenu-toggle-icon" id="icon-busses"></i>
+      </li>
+      <ul class="submenu" id="submenu-busses">
+          <li class="menu-item"><a href="../BUSSES/buslist.html"><i class="fas fa-bus-alt icon"></i> <span class="label">Buses
+                      List</span></a></li>
+         
+      </ul>
+
+        <li class="menu-item" onclick="toggleDropdown('submenu-drivers', 'icon-drivers')">
+          <i class="fas fa-users icon"></i> <span class="label">Drivers</span>
+          <i class="fas fa-chevron-down submenu-toggle-icon" id="icon-drivers"></i>
+        </li>
+        <ul class="submenu" id="submenu-drivers">
+          <li class="menu-item"><a href="../DRIVERSLIST/driverslist.html"><i class="fas fa-id-card"></i> <span class="label">Drivers
+                List</span></a></li>
+
+        </ul>
+
+        <li class="menu-item" onclick="toggleDropdown('submenu-students', 'icon-students')">
+          <i class="fas fa-user-graduate icon"></i> <span class="label">Bus Wise Students</span>
+          <i class="fas fa-chevron-down submenu-toggle-icon" id="icon-students"></i>
+        </li>
+        <ul class="submenu" id="submenu-students">
+          <li class="menu-item"><a href="../BUSSES/buslist.html"><i class="fas fa-user"></i> <span class="label">Bus No
+                1</span></a></li>
+          <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                2</span></a></li>
+          <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                3</span></a></li>
+          <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                4</span></a></li>
+          <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                5</span></a></li>
+          <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                6</span></a></li>
+          <li class="menu-item"><a href="#"><i class="fas fa-user"></i> <span class="label">Bus No
+                7</span></a></li>
+        </ul>
+        <li class="menu-item"><a href="../TRACKING/tracking.html"><i class="fas fa-map-marker-alt icon"></i> <span
+              class="label">Tracking</span></a></li>
+        
+        <li class="menu-item active" ><a href="../PROFILE/profile.html"><i class="fas fa-user icon"></i> <span class="label">Profile</span></a></li>
+        
+        <li class="menu-item"><a href="#"><i class="fas fa-sign-out-alt icon"></i> <span class="label">Log
+              Out</span></a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="containerTwo">
+        <h2 class="heading">Profile Settings</h2>
+        <form class="profileForm">
+          <!-- Profile Image Section -->
+          <div class="imageEditBox">
+            <img
+              src="https://assets.onecompiler.app/42y68y97m/433wsrkx3/DALL%C2%B7E%202024-12-16%2019.45.45%20-%20A%20futuristic%20and%20sleek%20logo%20design%20for%20a%20company%20named%20'ICB'%20with%20the%20subtitle%20'TRACKING%20SYSTEM'.%20The%20logo%20should%20include%20abstract%20GPS-inspired%20elemen.webp"
+              alt="Profile Image" class="profile-image" />
+            <div class="edit-icon" onclick="handleEditClick()">
+              <i class="fas fa-pen"></i>
+            </div>
+            <input type="file" accept="image/*" onchange="handleFileChange(event)" style="display: none;"
+              id="fileInput" />
+          </div>
+
+          <!-- Basic Information Section -->
+          <div class="form-section">
+            <h3>Basic Information</h3>
+            <div class="input-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" placeholder=" your full name" class="form-input" />
+            </div>
+            <div class="input-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder=" E-mail" class="form-input" />
+            </div>
+            <div class="input-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder=" phone number" class="form-input" />
+            </div>
+            <div class="input-group">
+              <label for="fullName">Designation</label>
+              <input type="text" id="fullName" placeholder="Designation" class="form-input" />
+            </div>
+          <!-- Save Buttons -->
+          <div class="buttonBox">
+            <button type="button" class="btn change-password-btn" onclick="openPasswordDialog()">
+              Change Password
+            </button>
+            <button type="button" class="btn save-btn" onclick="handleSubmit()" id="saveButton" disabled>
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Password Change Dialog -->
+  <div id="passwordDialog" class="dialog-overlay">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h3>Change Password</h3>
+        <button class="close-dialog" onclick="closePasswordDialog()">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <div class="input-group">
+          <label for="oldPassword">Current Password</label>
+          <div class="password-input">
+            <input type="password" id="oldPassword" placeholder="Enter current password" class="form-input" />
+            <i class="fas fa-eye password-toggle" onclick="togglePasswordVisibility('oldPassword', 'oldPasswordEye')"
+              id="oldPasswordEye"></i>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="newPassword">New Password</label>
+          <div class="password-input">
+            <input type="password" id="newPassword" placeholder="Enter new password" class="form-input" />
+            <i class="fas fa-eye password-toggle" onclick="togglePasswordVisibility('newPassword', 'newPasswordEye')"
+              id="newPasswordEye"></i>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="confirmPassword">Confirm New Password</label>
+          <div class="password-input">
+            <input type="password" id="confirmPassword" placeholder="Confirm new password" class="form-input" />
+            <i class="fas fa-eye password-toggle" onclick="togglePasswordVisibility('confirmPassword', 'confirmPasswordEye')"
+              id="confirmPasswordEye"></i>
+          </div>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button class="btn cancel-btn" onclick="closePasswordDialog()">Cancel</button>
+        <button class="btn save-password-btn" onclick="handlePasswordChange()">Update Password</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="profile.js"></script>
+</body>
+
+</html>
