@@ -242,7 +242,7 @@ async function loadProfileData() {
 
         const API_BASE_URL = window.location.hostname === 'localhost' 
             ? 'http://localhost:5005'
-            : 'https://icb-admin-panel-website-projectsvercel-lb0t7hchw.vercel.app';
+            : 'https://icb-admin-panel-website-8tjak5gmq-rajeshkumar8523s-projects.vercel.app';
 
         const response = await fetch(`${API_BASE_URL}/api/profile/${userId}`);
         const data = await response.json();
@@ -280,7 +280,7 @@ async function handlePasswordChange() {
     try {
         const API_BASE_URL = window.location.hostname === 'localhost' 
             ? 'http://localhost:5005'
-            : 'https://icb-admin-panel-website-projectsvercel-lb0t7hchw.vercel.app';
+            : 'https://icb-admin-panel-website-8tjak5gmq-rajeshkumar8523s-projects.vercel.app';
 
         const response = await fetch(`${API_BASE_URL}/api/update-password`, {
             method: 'POST',
