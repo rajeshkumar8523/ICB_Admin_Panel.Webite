@@ -90,6 +90,6 @@ fetchInitialBusData();
 
 // For Vercel environment, update socket connection
 if (window.location.hostname !== 'localhost') {
-    socket.io.uri = 'https://icb-admin-panel-website-projectsvercel-lb0t7hchw.vercel.app';
+    socket.io.uri = 'https://icb-admin-panel-website-8tjak5gmq-rajeshkumar8523s-projects.vercel.app';
     socket.connect();
 }
