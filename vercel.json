@@ -1,40 +1,26 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "backend/app.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "ICB-Admin-Panel/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
+    "version": 2,
+    "builds": [
+      {
+        "src": "backend/app.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "ICB-Admin-Panel/package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist"
+        }
       }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/app.js"
-    },
-    {
-      "src": "/ICB-Admin-Panel/(.*)",
-      "dest": "ICB-Admin-Panel/dist/$1",
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "backend/app.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "ICB-Admin-Panel/dist/$1"
       }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "ICB-Admin-Panel/dist/$1",
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
-      }
-    }
-  ]
-}
+    ]
+  }
