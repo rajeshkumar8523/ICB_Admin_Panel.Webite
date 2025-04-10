@@ -70,7 +70,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     // Determine API base URL based on environment
     const API_BASE_URL = window.location.hostname === 'localhost' 
         ? 'http://localhost:5005'
-        : 'https://icb-admin-panel-website-projectsvercel-lb0t7hchw.vercel.app';
+        : 'https://icb-admin-panel-website-8tjak5gmq-rajeshkumar8523s-projects.vercel.app';
 
     try {
         // Sending data to the server
