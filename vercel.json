@@ -6,7 +6,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "ICB-Admin-Panel/*",
+      "src": "ICB-Admin-Panel/**",
       "use": "@vercel/static"
     }
   ],
@@ -23,16 +23,13 @@
     },
     {
       "src": "/favicon.ico",
-      "dest": "ICB-Admin-Panel/favicon.ico",
-      "headers": {
-        "Cache-Control": "public, max-age=86400"
-      }
+      "dest": "/ICB-Admin-Panel/favicon.ico"
     },
     {
       "src": "/(.*)",
-      "dest": "ICB-Admin-Panel/index.html",
+      "dest": "/ICB-Admin-Panel/index.html",
       "headers": {
-        "Cache-Control": "public, max-age=3600",
+        "Cache-Control": "public, max-age=0, must-revalidate",
         "X-Frame-Options": "DENY",
         "X-Content-Type-Options": "nosniff",
         "Referrer-Policy": "strict-origin-when-cross-origin"
