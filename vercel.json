@@ -16,9 +16,10 @@
       "dest": "backend/app.js",
       "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
       "headers": {
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "http://localhost:5500,https://icb-admin-panel-website-8tjak5gmq-rajeshkumar8523s-projects.vercel.app",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept, Upgrade, Connection",
+        "Access-Control-Allow-Credentials": "true"
       }
     },
     {
