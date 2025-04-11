@@ -6,7 +6,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "ICB-Admin-Panel/**",
+      "src": "ICB-Admin-Panel/public/**/*",
       "use": "@vercel/static"
     }
   ],
@@ -18,12 +18,12 @@
       "headers": {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With, Accept"
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
       }
     },
     {
       "src": "/(.*)",
-      "dest": "/ICB-Admin-Panel/index.html",
+      "dest": "/ICB-Admin-Panel/public/index.html",
       "headers": {
         "Cache-Control": "public, max-age=0, must-revalidate",
         "X-Frame-Options": "DENY",
