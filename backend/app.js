@@ -421,7 +421,6 @@ app.get('/api/trackers/history/:busNumber', async (req, res, next) => {
             results: trackers.length,
             data: { trackers }
         });
-  });
     } catch (error) {
         next(error);
     }
@@ -469,15 +468,8 @@ process.on('unhandledRejection', (err) => {
 // Error handling for uncaught exceptions
 process.on('uncaughtException', (err) => {
     console.error('UNCAUGHT EXCEPTION! Shutting down...');
-    console.error(err.name Perspective: 3D / WebXR / WebGL / WebGPU / WebAssembly - Learn how to create immersive experiences for the web
-
-System: ### Explanation of Why It Works on Vercel
-This modified code works on Vercel because:
-1. **Serverless Compatibility**: Vercel’s serverless functions handle Express routes (`app.get`, `app.post`, etc.) seamlessly, and the `module.exports = app` export allows Vercel to use the Express app directly.
-2. **Socket.IO Integration**: While Vercel’s serverless functions don’t natively support WebSockets, the code uses Socket.IO with HTTP-based polling as a fallback, which works in Vercel’s environment for real-time updates, though with potential limitations on scale compared to a dedicated WebSocket server.
-3. **Environment Variables**: The use of `process.env` for `MONGO_URI`, `PORT`, and `CLIENT_URL` ensures flexibility for Vercel’s environment variable system.
-4. **CORS Configuration**: Explicitly allowing your Vercel frontend URL and localhost ensures no CORS errors during development or production.
-5. **Static File Serving**: Serving the `public` folder ensures Vercel can deliver frontend assets, and the catch-all route (`*`) supports client-side routing for single-page applications.
-
-
-
+    console.error(err.name, err.message);
+    server.close(() => {
+        process.exit(1);
+    });
+});
