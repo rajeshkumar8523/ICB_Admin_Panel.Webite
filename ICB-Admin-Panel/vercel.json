@@ -8,7 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/login",
+      "src": "/index.html",
       "dest": "/ICB-Admin-Panel/public/LOGIN/login.html",
       "headers": {
         "Cache-Control": "public, max-age=0, must-revalidate"
@@ -23,7 +23,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/ICB-Admin-Panel/public/index.html",
+      "dest": "/ICB-Admin-Panel/public/LOGIN/login.html",
       "headers": {
         "Cache-Control": "public, max-age=0, must-revalidate",
         "X-Frame-Options": "DENY",
