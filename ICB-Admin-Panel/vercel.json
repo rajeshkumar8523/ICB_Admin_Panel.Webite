@@ -2,21 +2,21 @@
   "version": 2,
   "builds": [
     {
-      "src": "ICB-Admin-Panel/**/*",
+      "src": "ICB-Admin-Panel/public/**/*",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/assets/(.*)",
-      "dest": "/ICB-Admin-Panel/assets/$1",
+      "dest": "/ICB-Admin-Panel/public/assets/$1",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"
       }
     },
     {
       "src": "/(.*)",
-      "dest": "/ICB-Admin-Panel/index.html",
+      "dest": "/ICB-Admin-Panel/public/index.html",
       "headers": {
         "Cache-Control": "public, max-age=0, must-revalidate",
         "X-Frame-Options": "DENY",
