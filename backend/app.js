@@ -479,31 +479,5 @@ This modified code works on Vercel because:
 4. **CORS Configuration**: Explicitly allowing your Vercel frontend URL and localhost ensures no CORS errors during development or production.
 5. **Static File Serving**: Serving the `public` folder ensures Vercel can deliver frontend assets, and the catch-all route (`*`) supports client-side routing for single-page applications.
 
-### Steps to Deploy on Vercel
-1. **Project Setup**:
-   - Ensure your project has a `public` folder with your frontend files (e.g., `index.html`).
-   - Add a `vercel.json` file for configuration (optional, but recommended):
-     ```json
-     {
-       "version": 2,
-       "builds": [
-         {
-           "src": "index.js",
-           "use": "@vercel/node"
-         },
-         {
-           "src": "public/**",
-           "use": "@vercel/static"
-         }
-       ],
-       "routes": [
-         {
-           "src": "/api/.*",
-           "dest": "/index.js"
-         },
-         {
-           "src": "/(.*)",
-           "dest": "/public/index.html"
-         }
-       ]
-     }
+
+
