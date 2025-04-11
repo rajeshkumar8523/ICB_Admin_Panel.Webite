@@ -35,8 +35,8 @@ app.use(cors({
     credentials: true
 }));
 
-// Serve static files from the public folder
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from ICB-Admin-Panel/public
+app.use(express.static(path.join(__dirname, '../ICB-Admin-Panel/public')));
 
 // MongoDB Connection
 const mongoURI = process.env.MONGO_URI || 'mongodb+srv://projectsem949:rajesh8523@admindb.zesxng1.mongodb.net/?retryWrites=true&w=majority&appName=admindb';
@@ -426,14 +426,14 @@ app.get('/api/trackers/history/:busNumber', async (req, res, next) => {
     }
 });
 
-// Serve frontend
+// Serve frontend (default to login.html)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, '../ICB-Admin-Panel/public/LOGIN/login.html'));
 });
 
 // Catch-all route for frontend routing
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, '../ICB-Admin-Panel/public/LOGIN/login.html'));
 });
 
 // Global error handler
